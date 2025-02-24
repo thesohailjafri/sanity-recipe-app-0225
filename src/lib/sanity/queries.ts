@@ -1,102 +1,30 @@
-export const COLLECTIONS_QY = `*[_type == 'collection'] | order(sortOrder asc) {
+export const RECIPES_QY = `*[_type == 'recipe'] | order(sortOrder asc) {
 	title,
 	slug,
+	image,
 	description,
-	products[]-> {
-		title,
-		slug,
-		description,
-		price,
-		discountPrice,
-		images,
-		category-> {
-			title,
-			slug
-		},
-		variants,
-		reviews,
-		inStock,
-		tags,
-		collections[]-> {
-			title,
-			slug
-		}
-	}
+	nutrition
 }`
 
-export const COLLECTION_BY_SLUG_QY = `*[_type == 'collection' && slug.current == $slug][0] {
+export const RECIPE_BY_SLUG_QY = `*[_type == 'recipe' && slug.current == $slug][0] {
 	title,
 	slug,
+	seo,
+	image,
 	description,
-	products[]-> {
-		title,
-		slug,
-		description,
-		price,
-		discountPrice,
-		images,
-		category-> {
-			title,
-			slug
-		},
-		variants,
-		reviews,
-		inStock,
-		tags,
-		collections[]-> {
-			title,
-			slug
-		}
-	}
-}`
-
-export const COLLECTION_SLUGS_QY = `*[_type == 'collection' && defined(slug.current)] {
-	slug
-}`
-
-export const PRODUCTS_QY = `*[_type == 'product'] | order(sortOrder asc) {
-	title,
-	slug,
-	description,
-	price,
-	discountPrice,
-	images,
-	category-> {
+	categories[]-> {
 		title,
 		slug
 	},
-	variants,
-	reviews,
-	inStock,
-	tags,
-	collections[]-> {
-		title,
-		slug
-	}
+	preparationTime,
+	cookingTime,
+	totalTime,
+	ingredients,
+	instructions,
+	nutrition
 }`
 
-export const PRODUCT_BY_SLUG_QY = `*[_type == 'product' && slug.current == $slug][0] {
-	title,
-	slug,
-	description,
-	price,
-	discountPrice,
-	images,
-	category-> {
-		title,
-		slug
-	},
-	variants,
-	reviews,
-	inStock,
-	tags,
-	collections[]-> {
-		title,
-		slug
-	}
-}`
-
-export const PRODUCT_SLUGS_QY = `*[_type == 'product' && defined(slug.current)] {
+export const RECIPE_SLUGS_QY = `*[_type == 'recipe' && defined(slug.current)] {
 	slug
 }`
 
@@ -114,26 +42,4 @@ export const CATEGORY_BY_SLUG_QY = `*[_type == 'category' && slug.current == $sl
 
 export const CATEGORY_SLUGS_QY = `*[_type == 'category' && defined(slug.current)] {
 	slug
-}`
-
-export const REVIEWS_QY = `*[_type == 'review'] | order(createdAt desc) {
-	user,
-	product-> {
-		title,
-		slug
-	},
-	rating,
-	comment,
-	createdAt
-}`
-
-export const REVIEWS_BY_PRODUCT_QY = `*[_type == 'review' && product.slug.current == $slug] | order(createdAt desc) {
-	user,
-	product-> {
-		title,
-		slug
-	},
-	rating,
-	comment,
-	createdAt
 }`

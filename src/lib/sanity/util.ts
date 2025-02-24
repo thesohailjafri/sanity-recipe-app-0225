@@ -25,7 +25,7 @@ type SanityUrlOption = {
   quality?: number
 }
 
-export const getImageUrl = (data: Sanity.File, options?: SanityUrlOption) => {
+export const getImageUrl = (data: Sanity.Image, options?: SanityUrlOption) => {
   const fallback = '/assets/placeholder.png'
   try {
     const { width = 1080, format = 'webp', quality = 90 } = options || {}

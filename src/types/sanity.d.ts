@@ -1,18 +1,8 @@
 export namespace Sanity {
   // *** Defaults ***
-  export type Type =
-    | 'collection'
-    | 'product'
-    | 'variant'
-    | 'category'
-    | 'review'
+  export type Type = 'recipe' | 'category'
 
-  export type TypeSlug =
-    | `collection-${string}`
-    | `product-${string}`
-    | `variant-${string}`
-    | `category-${string}`
-    | `review-${string}`
+  export type TypeSlug = `recipe-${string}` | `category-${string}`
 
   interface Defaults {
     _id: string
@@ -31,58 +21,100 @@ export namespace Sanity {
     }
   }
 
+  export interface Image extends Defaults {
+    _type: 'image'
+    asset: {
+      _ref: string
+      _type: 'reference'
+    }
+    alt?: string
+  }
+
   export type Slug = {
     _type: 'slug'
     current: string
   }
 
+  export type BlockContent = (Block | Image | Callout)[]
+
+  export type Block = {
+    _key: string
+    _type: 'block'
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote'
+    children: Span[]
+    markDefs?: MarkDef[]
+    listItem?: 'bullet' | 'number'
+  }
+
+  export type Span = {
+    _key: string
+    _type: 'span'
+    text: string
+    marks?: string[]
+  }
+
+  export type MarkDef = ExternalLink | InternalLink
+
+  export type ExternalLink = {
+    _key: string
+    _type: 'link'
+    href: string
+    blank?: boolean
+  }
+
+  export type InternalLink = {
+    _key: string
+    _type: 'internalLink'
+    reference: {
+      _type: 'reference'
+      _ref: string // ID of the linked document
+    }
+  }
+
+  export type Callout = {
+    _key: string
+    _type: 'callout'
+    style: 'info' | 'warning' | 'success' | 'error'
+    content: string
+  }
+
+  export interface Seo extends Defaults {
+    _type: 'seo'
+    title: string
+    description: string
+    keywords: string[]
+    image?: Image
+  }
+
   // *** Documents ***
 
-  export interface Collection extends Defaults {
-    _type: 'collection'
+  export interface Recipe extends Defaults {
+    _type: 'recipe'
     title: string
     slug: Slug
-    description: string
-		image: File
-    products: Product[]
-  }
-
-  export interface Product extends Defaults {
-    _type: 'product'
-    title: string
-    slug: Slug
-    description: string
-    price: number
-    discountPrice: number
-    images: File[]
-    category: Category
-    variants: Variant[]
-    reviews: Review[]
-    inStock: boolean
-    tags: string[]
-    collections: Collection[]
-  }
-
-  export interface Variant extends Defaults {
-    _type: 'variant'
-    size: string
-    color: string
-    stock: number
+    seo: Seo
+    image?: Image
+    description?: string
+    categories: Category[]
+    preparationTime?: number // in minutes
+    cookingTime?: number // in minutes
+    totalTime?: number // in minutes
+    ingredients: string[]
+    instructions: BlockContent
+    nutrition?: {
+      calories?: number
+      carbs?: number
+      protein?: number
+      fat?: number
+    }
   }
 
   export interface Category extends Defaults {
     _type: 'category'
     title: string
     slug: Slug
-    description: string
-  }
-
-  export interface Review extends Defaults {
-    _type: 'review'
-    user: string
-    product: Product
-    rating: number
-    comment: string
-    createdAt: string
+    seo: Seo
+    description?: string
+    image?: Image
   }
 }
