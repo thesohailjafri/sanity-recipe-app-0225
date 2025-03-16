@@ -2,8 +2,7 @@ import { getImageUrl } from '@/lib/sanity/util'
 import { genSlug } from '@/lib/utils/generate'
 import { Sanity } from '@/types'
 import { PortableText, PortableTextReactComponents } from '@portabletext/react'
-
-export const Components: Partial<PortableTextReactComponents> = {
+ const Components: Partial<PortableTextReactComponents> = {
   listItem: {
     bullet: ({ children }) => (
       <ul className="list-disc ml-5">
@@ -91,7 +90,7 @@ export const Components: Partial<PortableTextReactComponents> = {
       </blockquote>
     ),
     normal: ({ children }) => (
-      <p className="text-base text-gray-800">{children}</p>
+      <p className="text-base pb-2 text-gray-800">{children}</p>
     ),
   },
 }

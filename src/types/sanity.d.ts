@@ -93,7 +93,7 @@ export namespace Sanity {
     title: string
     slug: Slug
     seo: Seo
-    image?: Image
+    image: Image
     description?: string
     categories: Category[]
     preparationTime?: number // in minutes
@@ -115,6 +115,6 @@ export namespace Sanity {
     slug: Slug
     seo: Seo
     description?: string
-    image?: Image
+    image: Image
   }
 }

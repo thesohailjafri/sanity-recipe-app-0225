@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "framerusercontent.com" }],
+    remotePatterns: [{ protocol: "https", hostname: "framerusercontent.com" },
+      { protocol: "https", hostname: "cdn.sanity.io" }
+    ],
   },
 };
 

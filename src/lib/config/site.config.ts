@@ -16,5 +16,5 @@ export class pagePath {
   static contactus = "/contactus";
   static form = "/form";
   static categorySlug = (slug: string) => `/category/${slug}`;
-  static productSlug = (slug: string) => `/product/${slug}`;
+  static recipeSlug = (slug: string) => `/recipe/${slug}`;
 }

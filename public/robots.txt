@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: "https://zenrecipe.easyui.design"
+
+# Sitemaps
+Sitemap: "https://zenrecipe.easyui.design"/sitemap.xml
