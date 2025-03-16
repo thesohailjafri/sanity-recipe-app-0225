@@ -1,20 +1,20 @@
 export const siteConfig = {
-  domain: "https://example.com",
-  name: "Example",
-
+  domain: 'https://zenrecipes.easyui.design',
+  name: 'Zen Recipes',
+  logo: '/assets/logo.png',
   contact: {
-    email: "contact@example.com",
-  },
-};
+    email: 'hi@zenrecipes.easyui.design'
+  }
+}
 
 export class pagePath {
-  static home = "/";
-  static category = "/category";
-  static recipe = "/recipe";
-  static product = "/product";
-  static aboutus = "/aboutus";
-  static contactus = "/contactus";
-  static form = "/form";
-  static categorySlug = (slug: string) => `/category/${slug}`;
-  static recipeSlug = (slug: string) => `/recipe/${slug}`;
+  static home = '/'
+  static category = '/category'
+  static recipe = '/recipe'
+  static product = '/product'
+  static aboutus = '/aboutus'
+  static contactus = '/contactus'
+  static form = '/form'
+  static categorySlug = (slug: string) => `/category/${slug}`
+  static recipeSlug = (slug: string) => `/recipe/${slug}`
 }
