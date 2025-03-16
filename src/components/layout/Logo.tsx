@@ -1,10 +1,10 @@
-import { siteConfig, siteMap } from '@/lib/config/site.config'
-import Link from 'next/link'
+import { siteConfig, pagePath } from "@/lib/config/site.config";
+import Link from "next/link";
 
 export default function Logo() {
   return (
     <div className="min-w-fit">
-      <Link href={siteMap.home}>
+      <Link href={pagePath.home}>
         {/* <Image
           height={40}
           width={40}
@@ -23,5 +23,5 @@ export default function Logo() {
         {/* </Text> */}
       </Link>
     </div>
-  )
+  );
 }

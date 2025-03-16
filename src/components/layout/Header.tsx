@@ -1,124 +1,63 @@
-"use client"
-
-import { NavLink } from "@/types/type"
-import Link from "next/link"
-import { Input } from "../ui/input"
-import Logo from "./Logo"
-import MyContainer from "./MyContainer"
-import { siteMap } from "@/lib/config/site.config"
+import { IoMdCall } from "react-icons/io";
+import { IoMenu, IoSearchSharp } from "react-icons/io5";
+import MyContainer from "./MyContainer";
+import { pagePath } from "@/lib/config/site.config";
+import Link from "next/link";
 
 export default function Header() {
   return (
-    <>
-      <div className="fixed w-full">
-        <div className="w-full py-6 border-b-2">
-          <MyContainer className="px-10">
-            <div className="flex justify-evenly items-center gap-10">
-              <Logo />
-              <Input
-                placeholder="Search by brand, color, etc."
-                className="border-2 py-5 text-2xl"
-              />
-              <DesktopMenu />
-            </div>
-          </MyContainer>
+    <MyContainer className="mt-2 py-2 md:mt-5 flex justify-between md:p:5">
+      <h1 className="font-bold">TheZenRecipes</h1>
+      <div className=" gap-6 hidden md:flex">
+        {navbar.map((menu, index) => (
+          <div key={index} className="group relative flex items-center space-x-2">
+          <p className="translate-x-0 group-hover:translate-x-1 cursor-pointer duration-200 ease-in-out font-normal group-hover:font-semibold min-w-[60px]">
+            <Link href={menu.path}>{menu.title}</Link>
+          </p>
+          
+          {/* Circle that slides in from the right */}
+          <p className="absolute left-0  translate-x-2 opacity-0 group-hover:opacity-100 group-hover:-translate-x-5 duration-200 ease-in-out">
+            <span className="block h-2 w-2 bg-yellow-400 rounded-full"></span>
+          </p>
         </div>
-        <div className="flex gap-4 mx-auto justify-center w-full  border-b-2">
-          {storeLinks.map((navLink) => {
-            return (
-              <div
-                key={navLink.label}
-                className="my-4 font-semibold text-md cursor-pointer
-								after:block after:absolute after:w-full after:bg-black after:h-0.5 
-								after:scale-x-0 hover:after:scale-x-100 transition-all duration-150 ease-out relative
-								"
-              >
-                <Link href={navLink.href}>{navLink.label}</Link>
-              </div>
-            )
-          })}
+        
+        ))}
+      </div>
+      <div className="hidden md:flex gap-3">
+        <div className="bg-gray-100  rounded-full p-1">
+          <IoSearchSharp />
+        </div>
+        <div className="bg-black text-white  rounded-full p-1">
+          <IoMdCall />
         </div>
       </div>
-      <div className="h-52" />
-    </>
-  )
+      <div className="flex md:hidden">
+      <IoMenu />
+      </div>
+    </MyContainer>
+  );
 }
 
-const DesktopMenu = () => {
-  return (
-    <div className="gap-4 flex  min-w-fit">
-      {headerNavLinks.map((navLink) => {
-        return (
-          // <Box
-          //   key={navLink.label}
-          //   fontWeight={"extrabold"}
-          //   fontSize={"md"}
-          //   cursor={"pointer"}
-          //   color={
-          //     navLink.href === getCanonicalUrl(pathname)
-          //       ? "brand.lightBlue"
-          //       : ""
-          //   }
-          // >
-          <div
-            key={navLink.label}
-            className="font-semibold text-md cursor-pointer"
-          >
-            <Link href={navLink.href}>{navLink.label}</Link>
-          </div>
-          // </Box>
-        )
-      })}
-    </div>
-  )
-}
 
-const headerNavLinks: NavLink[] = [
+const navbar = [
   {
-    label: "Home",
-    href: siteMap.home,
+    title: "Home",
+    path: pagePath.home,
   },
   {
-    label: "About Us",
-    href: siteMap.home,
+    title: "About",
+    path: pagePath.aboutus,
   },
   {
-    label: "FAQs",
-    href: siteMap.home,
-  },
-]
-
-const storeLinks: NavLink[] = [
-  {
-    label: "Air Jordan",
-    href: siteMap.home,
+    title: "Recipes",
+    path: pagePath.recipe,
   },
   {
-    label: "Nike",
-    href: siteMap.home,
+    title: "Form",
+    path: pagePath.form,
   },
   {
-    label: "Adidas",
-    href: siteMap.home,
+    title: "Contact",
+    path: pagePath.contactus,
   },
-  {
-    label: "New Balance",
-    href: siteMap.home,
-  },
-  {
-    label: "Yeezy",
-    href: siteMap.home,
-  },
-  {
-    label: "Onitsuka Tiger",
-    href: siteMap.home,
-  },
-  {
-    label: "Kyrie Irving",
-    href: siteMap.home,
-  },
-  {
-    label: "Athlete",
-    href: siteMap.home,
-  },
-]
+]; 

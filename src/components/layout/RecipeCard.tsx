@@ -1,5 +1,4 @@
 import { Sanity } from '@/types'
-import React from 'react'
 
 type Props = {
   recipe: Sanity.Recipe
