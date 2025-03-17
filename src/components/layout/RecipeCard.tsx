@@ -10,7 +10,6 @@ type Props = {
 }
 
 export default function RecipeCard({ recipe }: Props) {
-  console.log(recipe)
   return (
     <>
       <Link

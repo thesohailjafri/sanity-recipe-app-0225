@@ -1,19 +1,19 @@
-import { Sanity } from '@/types/sanity'
-import { QueryParams } from '@sanity/client'
-import { sanityClient, sanityConfig } from '@/lib/sanity/client'
+import {Sanity} from '@/types/sanity'
+import {QueryParams} from '@sanity/client'
+import {sanityClient, sanityConfig} from '@/lib/sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { buildFileUrl, parseFileAssetId } from '@sanity/asset-utils'
+import {buildFileUrl, parseFileAssetId} from '@sanity/asset-utils'
 
 type Tags = Sanity.Type[] | Sanity.TypeSlug[]
 
 export const sanityFetch = async <QueryResponse>(
   query: string,
   params: QueryParams = {},
-  tags?: Tags,
+  tags?: Tags
 ): Promise<QueryResponse> => {
   return sanityClient.fetch<QueryResponse>(query, params, {
     cache: process.env.NODE_ENV === 'development' ? 'no-store' : 'force-cache',
-    next: { tags },
+    next: {tags}
   })
 }
 
@@ -28,13 +28,8 @@ type SanityUrlOption = {
 export const getImageUrl = (data: Sanity.Image, options?: SanityUrlOption) => {
   const fallback = '/assets/placeholder.png'
   try {
-    const { width = 1080, format = 'webp', quality = 90 } = options || {}
-    const url = imageBuilder
-      .image(data)
-      .width(width)
-      .format(format)
-      .quality(quality)
-      .url()
+    const {width = 1080, format = 'webp', quality = 90} = options || {}
+    const url = imageBuilder.image(data).width(width).format(format).quality(quality).url()
     return url || fallback
   } catch {
     return fallback

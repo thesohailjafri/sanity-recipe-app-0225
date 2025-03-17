@@ -87,6 +87,12 @@ export namespace Sanity {
   }
 
   // *** Documents ***
+  export interface Banner extends Defaults {
+    _type: 'banner'
+    title: string
+    resourceReference: Recipe | Category
+    image: Image
+  }
 
   export interface Recipe extends Defaults {
     _type: 'recipe'
@@ -104,8 +110,8 @@ export namespace Sanity {
     nutrition?: {
       calories?: number
       carbs?: number
-      protein?: number
-      fat?: number
+      proteins?: number
+      fats?: number
     }
   }
 
