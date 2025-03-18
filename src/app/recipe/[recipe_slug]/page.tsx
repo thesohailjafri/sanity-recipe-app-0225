@@ -13,15 +13,13 @@ interface Props {
 export async function generateStaticParams() {
   const slugs = await sanityFetch<string[]>(RECIPE_SLUGS_QY)
   return slugs.map((s) => ({
-    params: { recipe_slug: s },
+    params: { recipe_slug: s }
   }))
 }
 
 // Shared Data Fetch Function with Caching
 const getRecipeBySlug = cache(async (slug: string) => {
-  return await sanityFetch<Sanity.Recipe>(RECIPE_BY_SLUG_QY, { slug }, [
-    `recipe-${slug}`,
-  ])
+  return await sanityFetch<Sanity.Recipe>(RECIPE_BY_SLUG_QY, { slug }, [`recipe-${slug}`])
 })
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -35,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (recipe?.image) {
     images.push({
       url: getImageUrl(recipe?.image),
-      alt: recipe?.seo?.image?.alt || `${recipe?.title} Image`,
+      alt: recipe?.seo?.image?.alt || `${recipe?.title} Image`
     })
   }
 
@@ -46,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: title,
       description: description,
-      images: images,
-    },
+      images: images
+    }
   }
 }
 

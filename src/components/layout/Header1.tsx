@@ -1,12 +1,12 @@
-import {IoMdCall} from 'react-icons/io'
-import {IoMenu, IoSearchSharp} from 'react-icons/io5'
-import MyContainer from './MyContainer'
-import {pagePath} from '@/lib/config/site.config'
+import { IoMdCall } from 'react-icons/io'
+import { IoMenu, IoSearchSharp } from 'react-icons/io5'
+import Container from './Container'
+import { pagePath } from '@/lib/config/site.config'
 import Link from 'next/link'
 
 export default function Header() {
   return (
-    <MyContainer className='mt-2 py-2 md:mt-5 flex justify-between md:p:5'>
+    <Container className='mt-2 py-2 md:mt-5 flex justify-between md:p:5'>
       <h1 className='font-bold'>TheZenRecipes</h1>
       <div className=' gap-6 hidden md:flex'>
         {navbar.map((menu, index) => (
@@ -33,7 +33,7 @@ export default function Header() {
       <div className='flex md:hidden'>
         <IoMenu />
       </div>
-    </MyContainer>
+    </Container>
   )
 }
 
