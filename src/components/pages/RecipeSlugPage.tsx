@@ -33,7 +33,7 @@ export default function RecipeSlugPage({ recipe }: Props) {
         <img src={getImageUrl(recipe.image)} alt={recipe.title} className='rounded-xl' />
       </div>
       <div className='space-y-2'>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold'>{recipe.title}</h2>
+        <h2 className='font-serif text-2xl sm:text-3xl md:text-4xl font-bold'>{recipe.title}</h2>
         <p>{recipe.description}</p>
       </div>
       <div className='p-5 bg-pink-50 rounded-xl space-y-4'>

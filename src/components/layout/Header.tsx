@@ -45,18 +45,8 @@ export default function Header() {
           </div>
           <div className='hidden lg:flex lg:gap-x-10'>
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className='group relative flex items-center space-x-2 text-sm/6 font-semibold text-gray-900'>
-                <p className='translate-x-0 group-hover:translate-x-1 cursor-pointer duration-200 ease-in-out font-normal group-hover:font-semibold min-w-[60px]'>
-                  <Link href={item.href}>{item.name}</Link>
-                </p>
-
-                {/* Circle that slides in from the right */}
-                <p className='absolute left-0  translate-x-2 opacity-0 group-hover:opacity-100 group-hover:-translate-x-5 duration-200 ease-in-out'>
-                  <span className='block h-2 w-2 bg-yellow-400 rounded-full'></span>
-                </p>
+              <a key={item.name} href={item.href} className='text-sm/6 font-semibold text-gray-900'>
+                {item.name}
               </a>
             ))}
           </div>

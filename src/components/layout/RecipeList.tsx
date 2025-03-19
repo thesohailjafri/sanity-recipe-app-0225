@@ -34,7 +34,7 @@ export default function RecipeList({ recipes, categories, showCategoryFilter }: 
     <div className=''>
       {showCategoryFilter && categories?.length && (
         <div className='my-10 space-y-8'>
-          <h2 className='text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>
+          <h2 className='font-serif text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>
             Recipes by Category
           </h2>
           <div className='flex justify-center align-middle gap-3 flex-wrap max-w-3xl mx-auto'>
