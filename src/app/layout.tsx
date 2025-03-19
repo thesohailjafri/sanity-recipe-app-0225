@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Outfit as MainFont } from 'next/font/google'
+import { Poppins as MainFont } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import Container from '@/components/layout/Container'
 
 const mainFont = MainFont({
   display: 'swap',
@@ -31,7 +32,9 @@ export default function RootLayout({
       <body className={mainFont.className}>
         <div className='min-h-screen overflow-hidden'>
           <Header />
-          <div id='main'>{children}</div>
+          <main id='main'>
+            <Container>{children}</Container>
+          </main>
           <Footer />
         </div>
       </body>

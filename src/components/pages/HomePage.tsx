@@ -2,7 +2,7 @@ import { getImageUrl } from '@/lib/sanity/util'
 import { Sanity } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import MyContainer from '../layout/MyContainer'
+import Container from '../layout/Container'
 import RecipeList from '../layout/RecipeList'
 import { pagePath } from '@/lib/config/site.config'
 import {
@@ -21,10 +21,10 @@ type Props = {
 
 export default function HomePage({ banners, categories, recipes }: Props) {
   return (
-    <MyContainer className='px-10'>
+    <Container>
       <Banners banners={banners} />
       <RecipeList recipes={recipes} categories={categories} showCategoryFilter={true} />
-    </MyContainer>
+    </Container>
   )
 }
 
@@ -45,29 +45,27 @@ function Banners({ banners }: BannersProps) {
     return link
   }
   return (
-    <div className='my-10'>
-      <Carousel>
-        <CarouselContent>
-          {banners.map((banner, index) => (
-            <CarouselItem key={index} className='md:basis-1/2'>
-              <Link href={getLink(banner)} target='_blank' className='block w-full'>
-                <div className='relative'>
-                  <div className='aspect-video aspect-w-16 aspect-h-9'>
-                    <Image
-                      src={getImageUrl(banner.image)}
-                      alt={banner.image?.alt ?? 'Image for banner'}
-                      fill
-                      className='object-cover rounded-2xl'
-                    />
-                  </div>
+    <Carousel>
+      <CarouselContent>
+        {banners.map((banner, index) => (
+          <CarouselItem key={index} className='md:basis-1/2'>
+            <Link href={getLink(banner)} target='_blank' className='block w-full'>
+              <div className='relative'>
+                <div className='aspect-video aspect-w-16 aspect-h-9'>
+                  <Image
+                    src={getImageUrl(banner.image)}
+                    alt={banner.image?.alt ?? 'Image for banner'}
+                    fill
+                    className='object-cover rounded-2xl'
+                  />
                 </div>
-              </Link>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </div>
+              </div>
+            </Link>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   )
 }

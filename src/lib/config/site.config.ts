@@ -3,10 +3,13 @@ export const siteConfig = {
   name: 'Zen Recipes',
   logo: '/assets/logo.png',
   contact: {
-    email: 'hi@zenrecipes.easyui.design'
+    email: 'example@app.com',
+    facebook: '#',
+    instagram: '#',
+    twitter: '#',
+    youtube: '#'
   }
 }
-
 export class pagePath {
   static home = '/'
   static category = '/category'

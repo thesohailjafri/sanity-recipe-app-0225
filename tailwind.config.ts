@@ -16,12 +16,7 @@ const config: Config = {
         tertiary: "var(--tertiary)",
         secondaryBg: "var(--backgroundsecondary)",
        
-        // secondary: {
-        // 	DEFAULT: 'hsl(var(--secondary))',
-        // 	foreground: 'hsl(var(--secondary-foreground))'
-        // },
-     
-        // border: 'hsl(var(--border))',
+   
       
       },
      
