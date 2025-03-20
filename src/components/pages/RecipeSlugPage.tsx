@@ -1,8 +1,6 @@
 import { getImageUrl } from '@/lib/sanity/util'
 import { Sanity } from '@/types/sanity'
-import Container from '../layout/Container'
 import { PortableComponents } from '../layout/PortableComponents'
-import { title } from 'process'
 
 type Props = {
   recipe: Sanity.Recipe
@@ -37,8 +35,8 @@ export default function RecipeSlugPage({ recipe }: Props) {
         <p>{recipe.description}</p>
       </div>
       <div className='p-5 bg-pink-50 rounded-xl space-y-4'>
-        <p className='text-pink-600 font-bold sm:text-2xl'>Preparation time</p>
-        <ul className='list-disc list-inside space-y-2'>
+        <p className='text-pink-600 font-bold sm:text-2xl font-serif'>Preparation time</p>
+        <ul className='list-disc list-inside space-y-2 font-sans'>
           <li>
             <span className='font-bold'>Total : </span>
             {recipe.totalTime} Minutes
@@ -54,7 +52,7 @@ export default function RecipeSlugPage({ recipe }: Props) {
         </ul>
       </div>
       <div className='space-y-4 p-5'>
-        <h2 className='text-2xl font-bold'>Ingredients</h2>
+        <h2 className='text-2xl font-bold font-serif'>Ingredients</h2>
         <ul className='list-disc list-inside space-y-2'>
           {recipe.ingredients.map((ingredient, index) => {
             return <li key={index}>{ingredient}</li>
@@ -63,14 +61,14 @@ export default function RecipeSlugPage({ recipe }: Props) {
       </div>
       <div className='border'></div>
       <div className='space-y-4 p-5'>
-        <h2 className='text-2xl font-bold'>Instructions</h2>
+        <h2 className='text-2xl font-bold font-serif'>Instructions</h2>
         <div>
           <PortableComponents value={recipe.instructions} />
         </div>
       </div>
       <div className='border'></div>
       <div className='space-y-4 p-5'>
-        <h2 className='text-2xl font-bold'>Nutrition</h2>
+        <h2 className='text-2xl font-bold font-serif'>Nutrition</h2>
         <p>The table below shows nutritional values per serving without the additional fillings.</p>
         <div className='grid grid-cols-2 space-y-2'>{/* Todo: Implement */}</div>
       </div>

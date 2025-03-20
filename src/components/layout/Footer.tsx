@@ -5,11 +5,11 @@ import Container from './Container'
 export default function Footer() {
   const navigation = {
     solutions: [
-      { name: 'Marketing', href: '#' },
-      { name: 'Analytics', href: '#' },
-      { name: 'Automation', href: '#' },
-      { name: 'Commerce', href: '#' },
-      { name: 'Insights', href: '#' }
+      { name: 'Spaghetti', href: '#' },
+      { name: 'Pizza', href: '#' },
+      { name: 'Butter Chicken', href: '#' },
+      { name: 'Pasta', href: '#' },
+      { name: 'Burger', href: '#' }
     ],
     support: [
       { name: 'Submit ticket', href: '#' },
@@ -51,23 +51,11 @@ export default function Footer() {
       <Container className='pb-8 pt-16 sm:pt-24 lg:pt-32'>
         <div className='xl:grid xl:grid-cols-2 xl:gap-8'>
           <img alt='Company name' src={siteConfig.logo} className='h-9' />
-          <div className='mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 xl:mt-0'>
+          <div className='mt-16 grid grid-cols-2 md:grid-cols-2 gap-8 xl:mt-0'>
             <div>
-              <h3 className='text-sm/6 font-semibold text-gray-900'>Solutions</h3>
+              <h3 className='text-sm/6 font-semibold text-gray-900'>Recipes</h3>
               <ul role='list' className='mt-6 space-y-4'>
                 {navigation.solutions.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className='text-sm/6 text-gray-600 hover:text-gray-900'>
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className='text-sm/6 font-semibold text-gray-900'>Support</h3>
-              <ul role='list' className='mt-6 space-y-4'>
-                {navigation.support.map((item) => (
                   <li key={item.name}>
                     <a href={item.href} className='text-sm/6 text-gray-600 hover:text-gray-900'>
                       {item.name}

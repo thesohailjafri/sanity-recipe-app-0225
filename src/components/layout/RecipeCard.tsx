@@ -23,8 +23,8 @@ export default function RecipeCard({ recipe }: Props) {
       />
       <div className='p-5 flex flex-col justify-between h-full'>
         <div className='space-y-4'>
-          <p className='text-2xl font-bold'>{recipe.title}</p>
-          <p className='text-sm line-clamp-2'>{recipe.description}</p>
+          <p className='text-2xl font-serif font-bold'>{recipe.title}</p>
+          <p className='text-sm line-clamp-2 font-sans'>{recipe.description}</p>
         </div>
         <div className='bg-orange-900 text-orange-100 mt-8 px-4 py-3 rounded-3xl flex justify-between'>
           <span>See Complete Recipe</span>
